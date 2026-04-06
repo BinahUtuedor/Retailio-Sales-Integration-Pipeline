@@ -81,29 +81,50 @@ AWS_REGION=your_region
 Write and execute a Python script to upload datasets:
 
 ```python
-import boto3
 import os
+import boto3
+import pandas as pd
+import awswrangler as wr
 from dotenv import load_dotenv
+from pathlib import Path
 
 load_dotenv()
 
-s3 = boto3.client(
-    's3',
-    aws_access_key_id=os.getenv("AWS_ACCESS_KEY_ID"),
-    aws_secret_access_key=os.getenv("AWS_SECRET_ACCESS_KEY"),
-    region_name=os.getenv("AWS_REGION")
+access = os.getenv("ACCESS_KEY")
+secret = os.getenv("SECRET_KEY")
+region = os.getenv("REGION")
+bucket = "retailio-data-lake-bucket"
+
+# Validate credentials
+if not all([access, secret, region]):
+    raise ValueError("Missing AWS credentials or region in environment variables.")
+
+session = boto3.Session(
+    aws_access_key_id=access,
+    aws_secret_access_key=secret,
+    region_name=region
 )
 
-bucket_name = "your-bucket-name"
-
-files = {
-    "data/customers_V2.csv": "raw/customers/customers.csv",
-    "data/products_V2.csv": "raw/products/products.csv",
-    "data/sales_V2.csv": "raw/sales/sales.csv"
+datasets = {
+    "products": "data/product_V2.csv",
+    "customers": "data/customer_V2.csv",
+    "sales": "data/sales_V2.csv",
 }
 
-for local_path, s3_path in files.items():
-    s3.upload_file(local_path, bucket_name, s3_path)
+for name, path in datasets.items():
+    if Path(path).is_file():
+        df = pd.read_csv(path, encoding='latin1')
+        wr.s3.to_parquet(
+            df=df,
+            path=f"s3://{bucket}/raw/{name}/",
+            index=False,
+            mode='overwrite',
+            dataset=True,
+            boto3_session=session
+        )
+        print(f"Uploaded {name} successfully.")
+    else:
+        print(f"Path does not exist: {path}")
 ```
 
 ---
@@ -231,7 +252,7 @@ Run SQL queries in MotherDuck to validate integrity:
 
 ```sql
 SELECT COUNT(*) AS total_rows
-FROM retailio_database.products;
+FROM products;
 ```
 
 Repeat for:
