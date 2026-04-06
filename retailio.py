@@ -10,7 +10,7 @@ load_dotenv()
 access = os.getenv("ACCESS_KEY")
 secret = os.getenv("SECRET_KEY")
 region = os.getenv("REGION")
-bucket = "retailio-data-lake-eng"
+bucket = "retailio-data-lake-bucket"
 
 # Validate credentials
 if not all([access, secret, region]):
