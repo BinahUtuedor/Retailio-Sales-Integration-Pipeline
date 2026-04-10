@@ -41,7 +41,7 @@ To stay competitive in modern retail, decisions must be backed by timely, reliab
 
 ---
 
-### 📊 Sample Workflow
+### 📊 Workflow
 Data is loaded, and stored, in **AWS S3** using **Python**.  The data is then loaded into **MotherDuck** warehouse for analytics, orchestrated with via **Airbyte**.
 
 CSV file  → AWS S3 → MotherDuck (SQL) with Airbyte orchestration.
@@ -77,7 +77,7 @@ retailio-sales-integration-pipeline/
 
 ---
 
-### 3. AWS Credentials Setup
+### AWS Credentials Setup
 
 Create a `.env` file to securely store credentials:
 
@@ -100,7 +100,7 @@ AWS_REGION=your_region
 
 ---
 
-### 4. Upload Data to S3
+### Upload Data to S3
 
 Write and execute a Python script to upload datasets:
 
@@ -132,7 +132,7 @@ for local_path, s3_path in files.items():
 
 ---
 
-### 5. Verify S3 Structure
+### Verify S3 Structure
 
 Ensure files are organized as:
 
@@ -210,16 +210,12 @@ Sign up at: https://app.motherduck.com
 * Go to **Organization Settings → Access Tokens**
 * Create and copy token (only shown once)
 
----
-
 ### 3. Create Database
 
 1. Navigate to **Attached Databases**
 2. Click **+ → Create Database**
 3. Name your database (e.g., `retailio_database`)
 4. Copy connection string
-
----
 
 ### 4. Configure Airbyte Destination
 
@@ -263,8 +259,6 @@ Repeat for:
 * `customers`
 * `sales`
 
----
-
 ### Null Value Check
 
 ```sql
@@ -272,8 +266,6 @@ SELECT COUNT(*) AS total_rows
 FROM products
 WHERE product_id IS NULL;
 ```
-
----
 
 ### Duplicate Check
 
@@ -331,8 +323,6 @@ Once created, the view can be queried like a regular table:
 SELECT * 
 FROM sales_summary;
 ```
-
----
 
  Create other views as needed for reporting.
 
