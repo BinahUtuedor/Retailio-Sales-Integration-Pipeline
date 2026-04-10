@@ -1,6 +1,28 @@
 # Retailio Sales Integration Pipeline
 ## 📌 Project Overview
-To stay competitive in modern retail, decisions must be backed by timely, reliable, and well-integrated data. This project delivers a production-ready, cloud-native **ELT data pipeline** capable of handling multiple retail datasets while maintaining accuracy, scalability, and transparency.
+In modern retail, staying competitive requires decisions backed by timely, reliable, and well-integrated data. However, as retail operations grow—spanning multiple regions, sales channels, and daily transaction volumes—several critical challenges emerge:
+
+### Problems This Project Solves
+
+- **Data silos** – Sales, customer, and product data become scattered across locations and systems, limiting cross-functional visibility.
+
+- **Inconsistent reporting** – Manual processes and spreadsheet-based workflows introduce delays, errors, and a lack of trust in the data.
+
+- **Limited operational insight** – Without a unified view, management struggles to monitor daily performance, identify trends, or respond quickly to changes.
+
+- **Inefficient analytics** – Marketing, operations, and finance teams cannot easily access or analyze data, slowing decision-making and strategic planning.
+
+### Solution
+
+This project directly addresses these problems by delivering a **production-ready, cloud-native ELT data pipeline** capable of handling multiple retail datasets while ensuring accuracy, scalability, and transparency. It automates data integration, centralizes information into a single repository, and empowers teams with reliable, near-real-time insights for faster, data-driven decisions.
+
+### Core Data Areas Supported
+
+| Area | Description |
+|------|-------------|
+| **Sales transactions** | Online and in-store, across multiple regions and channels |
+| **Product & inventory management** | Stock levels, pricing, and seasonal demand |
+| **Customer insights** | Behavioral data to support targeting, retention, and promotion strategies |
 
 ---
 ## 📌 Core Objectives
