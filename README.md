@@ -1,9 +1,8 @@
 # Retailio Sales Integration Pipeline
-
-This project delivers a production-ready, cloud-native ELT pipeline capable of handling multiple retail datasets while maintaining accuracy, scalability, and transparency.
+## 📌 Project Overview
+To stay competitive in modern retail, decisions must be backed by timely, reliable, and well-integrated data. This project delivers a production-ready, cloud-native **ELT data pipeline** capable of handling multiple retail datasets while maintaining accuracy, scalability, and transparency.
 
 ---
-
 ## 📌 Core Objectives
 
 * **Centralize Data**
@@ -23,21 +22,46 @@ This project delivers a production-ready, cloud-native ELT pipeline capable of h
 
 ---
 
-## 🛠️ Project Implementation
+## 🧰 Tech Stack
 
-### 1. Environment Setup
+- **Python** – Core programming language for data processing and orchestration 
+- **AWS S3** – Cloud storage for raw and processed data
+- **Airbyte** – Open-source data integration and ELT tool
+- **MotherDuck** – DuckDB-powered cloud data warehouse
+- **SQL** - Querying, transformation logic, and data validation across the warehouse
+---
 
-Install required dependencies:
+## 🚀 Key Features
 
-```bash
-pip install python-dotenv boto3 pandas
-```
+- Automated data extraction from multiple sources
+- Cloud storage on AWS S3 data lake
+- Airbyte connects the AWS S3 to MotherDuck data warehouse
+- ELT transformations using DuckDB/MotherDuck
+- Lightweight, serverless-friendly architecture
 
 ---
 
-### 2. Project Structure
+### 📊 Sample Workflow
+Data is loaded, and stored, in **AWS S3** using **Python**.  The data is then loaded into **MotherDuck** warehouse for analytics, orchestrated with via **Airbyte**.
 
-Create your project directory:
+CSV file  → AWS S3 → MotherDuck (SQL) with Airbyte orchestration.
+
+![Data Pipeline Architecture](./img/project_architecture.jpg)
+---
+
+
+## 🛠️ Setup Instructions
+
+1. Clone the repository
+2. Configure AWS credentials for S3 access
+3. Set up Airbyte locally or on a cloud instance
+4. Create a MotherDuck instance and update connection strings
+5. Run `pip install -r requirements.txt`
+6. Execute the main pipeline script: run `python retailio.py`
+
+---
+
+### 📁 Repository Structure
 
 ```
 retailio-sales-integration-pipeline/
@@ -343,6 +367,12 @@ FROM sales_summary;
 * Expand to multi-region datasets
 * Add dashboarding (e.g., Power BI, Tableau)
 
+---
+
+
+## 🤝 Contributing
+
+Contributions are welcome! Please open an issue or submit a pull request.
 ---
 
 ## 🧾 Summary
