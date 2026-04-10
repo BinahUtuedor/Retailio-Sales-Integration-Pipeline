@@ -1,4 +1,15 @@
+[![CSV](https://img.shields.io/badge/CSV-Data%20Format-2C8EBB?logo=microsoft-excel&logoColor=white)](https://en.wikipedia.org/wiki/Comma-separated_values)
+![Python](https://img.shields.io/badge/Python-Programming%20Language-blue)
+![AWS](https://img.shields.io/badge/AWS-S3%20Data%20Lake-orange)
+[![Parquet](https://img.shields.io/badge/Parquet-Columnar%20Format-1E90FF?logo=apache&logoColor=white)](https://parquet.apache.org/)
+![Airbyte](https://img.shields.io/badge/Airbyte-ELT-purple)
+![MotherDuck](https://img.shields.io/badge/MotherDuck-Warehouse-green)
+[![SQL](https://img.shields.io/badge/SQL-Query%20Language-4479A1?logo=postgresql&logoColor=white)](https://www.sql.org/)
+
+
 # Retailio Sales Integration Pipeline
+
+---
 ## 📌 Project Overview
 In modern retail, staying competitive requires decisions backed by timely, reliable, and well-integrated data. However, as retail operations grow—spanning multiple regions, sales channels, and daily transaction volumes—several critical challenges emerge:
 
